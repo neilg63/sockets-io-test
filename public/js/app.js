@@ -24,8 +24,12 @@ socket.on("connect", function(e){
 
 
 socket.on("message", function(message){
-
-	jQuery("#message-pane").append('<p class="'+message.type+'"><em>'+moment.utc(parseInt(message.timestamp)).local().format("h:mma DD/MM/YYYY")+'</em> <span class="text">'+message.text+'</span></p>');
+	var nameText = '',  $msgPane = jQuery("#message-pane");
+	if (message.name) {
+		nameText = ' <strong>'+message.name+'</strong> ';
+	}
+	$msgPane.append('<p class="info '+message.type+'">'+nameText+'<em>'+moment.utc(parseInt(message.timestamp)).local().format("h:mma DD/MM/YYYY")+'</em></p>');
+	$msgPane.append('<p class="text">'+message.text+'</p>');
 });
 
 var $form = jQuery('#message-form');
@@ -34,8 +38,9 @@ $form.on("submit", function(e){
 	e.preventDefault();
 	var msg = $(this).find("input[name=message]"), txt = $.trim(msg.val());
 	socket.emit("message", {
-		text: txt
-		type: "comment"
+		text: txt,
+		type: "comment",
+		name: getQueryVariable("name")
 	});
 	msg.val("");
 })
