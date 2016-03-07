@@ -16,6 +16,11 @@ socket.on("connect", function(e){
 	}
 	jQuery("#top-h1").html(msg);
 	var joinedMsg = name + " joined " + room;
+	socket.emit("joinRoom", {
+		name: getQueryVariable("name"),
+		room: getQueryVariable("room")
+	});
+
 	socket.emit("message", {
 		text: joinedMsg,
 		type: "joined"

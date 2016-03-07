@@ -1,0 +1,41 @@
+#message-pane p {
+	margin: 0;
+}
+
+#message-form p {
+	margin: 0;
+	padding: 0 0 0.5em 0;
+	clear: both;
+}
+
+#message-form p input,
+#message-form p select,
+#message-form p label {
+	float: left;
+}
+
+#message-form p label {
+	clear: both;
+	width: 8em;
+	text-align: right;
+	padding: 0 0.5em 0 0;
+}
+
+#message-form input.submit {
+	position: relative;
+	display: block;
+	clear: both;
+	width: 10em;
+	text-align: center;
+	margin-left: 8em;
+}
+
+
+#message-pane p.info {
+	padding: 0.625em 0 0.125em 0;
+	color: #999999;
+}
+
+#message-pane p.text {
+	padding: 0 0 0.125em 1.5em;
+}
