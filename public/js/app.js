@@ -29,12 +29,13 @@ socket.on("connect", function(e){
 
 
 socket.on("message", function(message){
-	var nameText = '',  $msgPane = jQuery("#message-pane");
+	var nameText = '',  $msgPane = jQuery("#message-pane"), $msg = jQuery('<li class="list-group-item"></li>');
 	if (message.name) {
 		nameText = ' <strong>'+message.name+'</strong> ';
 	}
-	$msgPane.append('<p class="info '+message.type+'">'+nameText+'<em>'+moment.utc(parseInt(message.timestamp)).local().format("h:mma DD/MM/YYYY")+'</em></p>');
-	$msgPane.append('<p class="text">'+message.text+'</p>');
+	$msg.append('<p class="info '+message.type+'">'+nameText+'<em>'+moment.utc(parseInt(message.timestamp)).local().format("h:mma DD/MM/YYYY")+'</em></p>');
+	$msg.append('<p class="text">'+message.text+'</p>');
+	$msgPane.append($msg);
 });
 
 var $form = jQuery('#message-form');
