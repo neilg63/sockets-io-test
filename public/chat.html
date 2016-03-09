@@ -3,17 +3,28 @@
 	<head>
 		<title>Sockets.io Sign In</title>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="/css/style.css" />
 	</head>
 	<body>
-	<h1 id="top-h1"></h1>
+	
+	<header>
+		<h1 id="top-h1"></h1>
+	</header>
+	<section id="content">
+	
 	<p><a href="/index.html">Change settings</a></p>
 	<div id="message-pane"></div>
 
 	<form id="message-form">
-		<input type="text" name="message" />
-		<input type="submit" value="Go" />
+		<div class="form-group">
+		<input type="text" name="message" class="form-control" />
+		</div>
+		<div class="form-group">		
+		<input type="submit" value="Go" class="btn btn-primary" />
+		</div>
 	</form>
+	</section>
 
 	<script src="/js/jquery-2.2.1.min.js"></script>
 	<script src="/js/socket.io-1.3.7.js"></script>

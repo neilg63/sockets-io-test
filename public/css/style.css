@@ -1,3 +1,32 @@
+body > header,
+#content {
+	position: relative;
+	max-width: 60em;
+	margin: 0 auto;
+}
+body > header {
+	padding: .5em 1em;
+}
+#content {
+	padding: 0 1em 2em 1em;
+}
+#top-h1 {
+	width: 100%;
+	text-align: center;
+}
+.vertical-centre {
+	min-height: 100vh;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.vertical-centre form {
+	min-height: 75vh;
+	display: flex;
+	align-items: center;
+}
+
 #message-pane p {
 	margin: 0;
 }
